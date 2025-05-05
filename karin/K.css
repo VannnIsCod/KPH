@@ -1,0 +1,133 @@
+body{
+    background-color: pink;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+    overflow: hidden;
+}
+
+.container{
+    text-align: center;
+    font-family: poppins, sans-serif;
+    background-color: #E6A1B0;
+    padding: 20px;
+    border-radius: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+a{
+    display: inline-block;
+    text-decoration: none;
+    color: #333;
+}
+
+
+.hati img {
+    position: absolute;
+    pointer-events: none;
+    height: 80px;
+    width: 80px;
+}
+
+#tu {
+    top: 175px;
+    left: 20%;
+    transform: rotate(-20deg);
+    animation: float 5s infinite ease-in-out;
+}
+
+#wa {
+    top: 315px;
+    right: 20%;
+    transform: rotate(20deg);
+    animation: float 5s infinite ease-in-out;
+}
+
+#ga {
+    top: 245px;
+    left: 23%;
+    height: 55px !important;
+    width: 55px !important;
+    transform: rotate(20deg);
+    animation: float2 5s infinite ease-in-out;
+}
+
+#pa {
+    top: 245px;
+    right: 18%;
+    height: 55px !important;
+    width: 55px !important;
+    transform: rotate(20deg);
+    animation: float2 5s infinite ease-in-out;
+}
+
+/* animasi hati terbang saat hover blm selesai. ada yg salah */
+/* idea: 2-3 hati  muncul dan terbang ke atas  sambil goyang kanan kiri dari belakang anchor */
+.naik {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 0;
+}
+
+.terbang{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+    transform: scale(0.5) translateY(30px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+a:hover .naik .terbang {
+    opacity: 1;
+    transform: scale(1) translateY(-80px);
+    animation: float-up 1.5s ease-in-out forwards;
+}
+
+@keyframes float {
+    0%, 50%, 100% {
+        transform: translateY(0) rotate(0);
+    }
+    25% {
+        transform: translateY(-12px) rotate(5deg);
+    }
+    75%{
+        transform: translateY(-12px) rotate(-5deg);
+    }
+}
+
+@keyframes float2 {
+    0%, 50%, 100% {
+        transform: translateY(0) rotate(0);
+    }
+    25% {
+        transform: translateY(-12px) rotate(-5deg);
+    }
+    75%{
+        transform: translateY(-12px) rotate(5deg);
+    }
+}
+
+/* ini keyframe animasi hati naik */
+@keyframes float-up {
+    0% {
+        opacity: 1;
+        transform: translateY(30px) scale(0.5);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-150px) scale(1.2);
+    }
+}
